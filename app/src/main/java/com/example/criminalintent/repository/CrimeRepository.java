@@ -27,6 +27,7 @@ public class CrimeRepository implements IRepository {
             Crime crime = new Crime();
             crime.setTitle("Crime#" + (i + 1));
             crime.setSolved(i % 2 == 0);
+            crime.setSelected(false);
 
             mCrimes.add(crime);
         }
@@ -43,7 +44,7 @@ public class CrimeRepository implements IRepository {
 
     @Override
     public Crime getCrime(UUID id) {
-        for (Crime crime: mCrimes) {
+        for (Crime crime : mCrimes) {
             if (crime.getId().equals(id))
                 return crime;
         }
@@ -82,5 +83,30 @@ public class CrimeRepository implements IRepository {
         }
 
         return 0;
+    }
+
+    @Override
+    public void deleteAllSelected() {
+        for (int i = 0; i < mCrimes.size(); i++) {
+            if (mCrimes.get(i).isSelected())
+                mCrimes.remove(i);
+        }
+    }
+
+    @Override
+    public void selectAll() {
+        for (int i = 0; i < mCrimes.size(); i++) {
+
+                mCrimes.get(i).setSelected(true);
+        }
+    }
+
+    @Override
+    public void unSelectAll() {
+        for (int i = 0; i < mCrimes.size(); i++) {
+
+            mCrimes.get(i).setSelected(false);
+        }
+
     }
 }

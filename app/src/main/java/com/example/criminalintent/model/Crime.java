@@ -11,6 +11,16 @@ public class Crime {
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+    private  boolean mSelected;
+
+    public boolean isSelected() {
+        return mSelected;
+    }
+
+    public void setSelected(boolean mSelected) {
+        this.mSelected = mSelected;
+    }
+
 
     public UUID getId() {
         return mId;
@@ -43,6 +53,8 @@ public class Crime {
     public Crime() {
         mId = UUID.randomUUID();
         mDate = DateUtils.randomDate();
+        mSelected=false;
+
 //        mDate = new Date();
     }
 

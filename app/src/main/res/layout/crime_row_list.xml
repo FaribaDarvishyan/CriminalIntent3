@@ -10,13 +10,12 @@
         android:id="@+id/row_item_crime_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="2dp"
         android:layout_toLeftOf="@id/imgview_solved"
+        android:layout_toRightOf="@+id/select_crime"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         tools:text="Crime Title" />
@@ -32,6 +31,7 @@
         android:layout_marginRight="2dp"
         android:layout_marginBottom="2dp"
         android:layout_toLeftOf="@id/imgview_solved"
+        android:layout_toRightOf="@+id/select_crime"
         android:layout_below="@id/row_item_crime_title"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -42,9 +42,17 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
+        android:layout_marginRight="1dp"
         android:cropToPadding="true"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/ic_solved" />
+    <CheckBox
+        android:id="@+id/select_crime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="1dp"/>
+
+
 
 </RelativeLayout>

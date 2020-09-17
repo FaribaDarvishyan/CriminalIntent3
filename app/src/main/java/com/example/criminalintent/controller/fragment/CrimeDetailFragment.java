@@ -9,6 +9,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,6 +25,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.criminalintent.R;
+import com.example.criminalintent.controller.activity.CrimePagerActivity;
 import com.example.criminalintent.model.Crime;
 import com.example.criminalintent.repository.CrimeRepository;
 import com.example.criminalintent.repository.IRepository;
@@ -64,6 +68,7 @@ public class CrimeDetailFragment extends Fragment {
         Log.d(TAG, "onCreate");
 
         mRepository = CrimeRepository.getInstance();
+        setHasOptionsMenu(true);
 
         //this is storage of this fragment
         UUID crimeId = (UUID) getArguments().getSerializable(ARGS_CRIME_ID);
@@ -91,13 +96,35 @@ public class CrimeDetailFragment extends Fragment {
         initViews();
         setListeners();
 
+
         return view;
     }
 
     @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_crime_detail, menu);
+
+        MenuItem item = menu.findItem(R.id.menu_item_delete_crime);
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_delete_crime:
+                mRepository.deleteCrime(mCrime);
+               getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
+    @Override
     public void onPause() {
         super.onPause();
-        updateCrime();
+//        updateCrime();
 
         Log.d(TAG, "onPause");
     }

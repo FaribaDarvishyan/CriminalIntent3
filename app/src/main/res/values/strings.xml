@@ -13,4 +13,9 @@
     <string name="menu_item_clear">Clear</string>
     <string name="menu_item_show_subtitle">Show Subtitle</string>
     <string name="menu_item_hide_subtitle">Hide Subtitle</string>
+    <string name="remove">remove</string>
+    <string name="add_crime">ADD CRIME</string>
+    <string name="item_delete_crime">Item</string>
+    <string name="selectall">SelectAll</string>
+    <string name="unselectall">UnSelectAll</string>
 </resources>

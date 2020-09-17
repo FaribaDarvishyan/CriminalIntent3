@@ -9,5 +9,16 @@
         android:id="@+id/menu_item_add_crime"
         android:icon="@drawable/ic_plus_circle_light"
         android:title="@string/menu_add_crime"
-        app:showAsAction="ifRoom|withText" />
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/delete_crime"
+        android:icon="@drawable/ic_delet_item"
+        android:title="@string/item_delete_crime"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/select_all"
+        android:title="@string/selectall" />
+    <item
+        android:id="@+id/unSelect_all"
+        android:title="@string/unselectall" />
 </menu>
